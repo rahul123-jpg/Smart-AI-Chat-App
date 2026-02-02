@@ -5,7 +5,7 @@ import { MyContext } from './MyContext.jsx';
 import axios from 'axios';
 import {ScaleLoader} from "react-spinners"
 const ChatWindow = () => {
- const{prompt,setPrompt,reply,setReply,currThreadId,prevChats,setPrevChats,setNewChat,setShowSidebar}= useContext(MyContext)
+ const{prompt,setPrompt,reply,setReply,currThreadId,prevChats,setPrevChats,setNewChat,setShowSidebar,showSidebar}= useContext(MyContext)
  const [loading,setLoading]=useState(false)
  const [isOpen,setIsOpen]=useState(false)
 
@@ -61,7 +61,8 @@ const ChatWindow = () => {
 
 
   return (
-    <div className='chatWindow'>
+    <div className={`chatWindow ${showSidebar ? "blur" : ""}`}>
+
       <div className='navbar'>
         <span className="menuBtn" onClick={() => setShowSidebar(s => !s)}>
   <i className="fa-solid fa-bars"></i>

@@ -7,7 +7,7 @@ import logo from "./assets/blacklogo.png";
 
 
 const Sidebar = () => {
-  const {allThreads,setAllThreads,currThreadId,setNewChat,setPrompt,setReply,setCurrThreadId,setPrevChats,showSidebar}=useContext(MyContext)
+  const {allThreads,setAllThreads,currThreadId,setNewChat,setPrompt,setReply,setCurrThreadId,setPrevChats,setShowSidebar,showSidebar}=useContext(MyContext)
 
   const getAllThreads=async()=>{
     try{
@@ -29,6 +29,10 @@ const Sidebar = () => {
 
 
     const createNewChat=()=>{
+      if (window.innerWidth < 900) {
+  setShowSidebar(false);
+}
+
     setNewChat(true)
     setPrompt("")
     setReply(null)
@@ -37,6 +41,9 @@ const Sidebar = () => {
   }
 
   const changeThread=async(newThreadId)=>{
+    if (window.innerWidth < 900) {
+  setShowSidebar(false);
+}
     setCurrThreadId(newThreadId)
 
     try{

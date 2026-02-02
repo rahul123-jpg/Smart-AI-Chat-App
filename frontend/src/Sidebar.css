@@ -87,6 +87,7 @@ button:hover {
 
   .sidebar{
     position: fixed;
+      box-shadow: 4px 0 10px rgba(0,0,0,0.3);
     left: -100%;
     top: 0;
     z-index: 999;

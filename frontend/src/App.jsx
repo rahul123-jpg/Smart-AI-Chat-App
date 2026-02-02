@@ -12,7 +12,7 @@ function App() {
   const [prevChats,setPrevChats]=useState([]);
   const[newChat,setNewChat]=useState(true);
   const [allThreads,setAllThreads]=useState([])
-const [showSidebar, setShowSidebar] = useState(true);
+const [showSidebar, setShowSidebar] = useState(window.innerWidth > 900);
 
 
 const providerValues={
