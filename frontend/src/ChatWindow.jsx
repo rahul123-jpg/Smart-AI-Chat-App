@@ -16,7 +16,7 @@ const ChatWindow = () => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8080/api/chat",
+      "https://smart-ai-chat-app-1.onrender.com/api/chat",
       {
         message: prompt,
         threadId: currThreadId  

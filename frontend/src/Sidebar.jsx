@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   const getAllThreads=async()=>{
     try{
-    const response=await axios.get("http://localhost:8080/api/thread")
+    const response=await axios.get("https://smart-ai-chat-app-1.onrender.com/api/thread")
     const filterData=response.data.map(thread=>({threadId:thread.threadId,title:thread.title}))
     // console.log(filterData);
     setAllThreads(filterData)
@@ -39,7 +39,7 @@ const Sidebar = () => {
     setCurrThreadId(newThreadId)
 
     try{
-      const response=await axios.get(`http://localhost:8080/api/thread/${newThreadId}`)
+      const response=await axios.get(`https://smart-ai-chat-app-1.onrender.com/api/thread/${newThreadId}`)
       console.log(response.data.messages);
       setPrevChats(response.data.messages)
       setNewChat(false)
@@ -52,7 +52,7 @@ const Sidebar = () => {
  
   const deleteThread=async(threadId)=>{
     try{
-     const response=await axios.delete(`http://localhost:8080/api/thread/${threadId}`,{method:"DELETE"})
+     const response=await axios.delete(`https://smart-ai-chat-app-1.onrender.com/api/thread/${threadId}`,{method:"DELETE"})
      console.log(response.data);
      setAllThreads(prev=>prev.filter(thread=>thread.threadId!==threadId));
      
@@ -95,7 +95,7 @@ const Sidebar = () => {
      </ul>
      {/* sign */}
      <div className='sign'>
-      <p>Guest Mode Only</p>
+      <p> Rahul Singh</p>
      </div>
    </section>
   )

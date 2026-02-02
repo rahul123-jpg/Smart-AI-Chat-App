@@ -31,35 +31,35 @@ const connectDB=async()=>{
 }
 
 
-const MODEL = "models/gemini-2.5-flash";
-const API_KEY = process.env.GEMINI_API_KEY;
+// const MODEL = "models/gemini-2.5-flash";
+// const API_KEY = process.env.GEMINI_API_KEY;
 
-app.post("/chat", async (req, res) => {
-  try {
-    const userMessage = req.body.message;
+// app.post("/chat", async (req, res) => {
+//   try {
+//     const userMessage = req.body.message;
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1/${MODEL}:generateContent?key=${API_KEY}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [{ text: userMessage }],
-            },
-          ],
-        }),
-      }
-    );
+//     const response = await fetch(
+//       `https://generativelanguage.googleapis.com/v1/${MODEL}:generateContent?key=${API_KEY}`,
+//       {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//           contents: [
+//             {
+//               parts: [{ text: userMessage }],
+//             },
+//           ],
+//         }),
+//       }
+//     );
 
-    const data = await response.json();
+//     const data = await response.json();
 
-    res.json({
-      reply: data.candidates[0].content.parts[0].text,
-    });
-  } catch (err) {
-    res.status(500).json({ error: "Something went wrong" });
-  }
-});
+//     res.json({
+//       reply: data.candidates[0].content.parts[0].text,
+//     });
+//   } catch (err) {
+//     res.status(500).json({ error: "Something went wrong" });
+//   }
+// });
 
