@@ -3,6 +3,7 @@ import {MyContext} from "./MyContext.jsx"
 import "./Sidebar.css"
 import axios from 'axios';
 import{v1 as uuidv1} from"uuid";
+import logo from "./assets/blacklogo.png";
 
 
 const Sidebar = () => {
@@ -71,7 +72,7 @@ const Sidebar = () => {
      <button
      onClick={createNewChat}
      >
-      <img src='src/assets/blacklogo.png' alt='gpt logo' className='logo'></img>
+      <img src={logo} alt="gpt logo" className="logo" />
       <span> <i class="fa-solid fa-pen-to-square"></i></span>
      </button>
      {/* history */}
