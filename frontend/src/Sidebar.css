@@ -80,3 +80,22 @@ button:hover {
     background-color: rgba(180,180,180,0.05);
     border-radius: 10px;
 }
+    
+/* ===== MOBILE RESPONSIVE SIDEBAR ===== */
+
+@media (max-width: 900px) {
+
+  .sidebar{
+    position: fixed;
+    left: -100%;
+    top: 0;
+    z-index: 999;
+    transition: all 0.3s ease;
+    width: 270px;
+  }
+
+  .sidebar.active{
+    left: 0;
+  }
+
+}

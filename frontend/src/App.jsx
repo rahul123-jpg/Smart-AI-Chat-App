@@ -12,6 +12,7 @@ function App() {
   const [prevChats,setPrevChats]=useState([]);
   const[newChat,setNewChat]=useState(true);
   const [allThreads,setAllThreads]=useState([])
+const [showSidebar, setShowSidebar] = useState(true);
 
 
 const providerValues={
@@ -20,7 +21,8 @@ const providerValues={
   currThreadId,setCurrThreadId,
   newChat,setNewChat,
   prevChats,setPrevChats,
-  allThreads,setAllThreads  
+  allThreads,setAllThreads , 
+  showSidebar,setShowSidebar,
 }
 
   return (

@@ -16,6 +16,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding-left: 120px;
     align-items: center;
 }
 
@@ -72,7 +73,7 @@ input{
                 rgba(0, 0, 0, 0.05) 0 -3px 5px;
 }
 
-input :focus{
+input:focus{
     outline: none;
 }
 
@@ -87,7 +88,7 @@ input :focus{
     align-items: center;
     justify-content: center;
 }
-#submt i:hover{
+#submit i:hover{
     color: #fff;
 }
 
@@ -121,4 +122,63 @@ input :focus{
     background-color: rgba(180,180,180,0.1);
     border-radius: 6px;
     
+}
+
+
+
+
+/* ===== RESPONSIVE CHAT WINDOW ===== */
+
+@media (max-width: 900px) {
+  .chatWindow {
+    width: 100%;
+  }
+
+  .navbar span {
+    margin: 1rem;
+  }
+
+  .userIconDiv {
+    margin: 1rem;
+  }
+
+  .dropDown {
+    right: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .inputBox {
+    max-width: 95%;
+  }
+
+  input {
+    padding: 15px;
+    font-size: 0.75rem;
+  }
+
+  #submit {
+    right: 10px;
+  }
+
+  .info {
+    font-size: 0.7rem;
+  }
+}
+  
+
+.menuBtn{
+  display: none;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 2000;
+}
+
+
+@media (max-width: 900px){
+  .menuBtn{
+    display: block;
+    margin-left: 1rem;
+  }
 }

@@ -10,4 +10,12 @@ body{
 .app{
     background-color: #212121;
     display: flex;
+     height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .app {
+    position: relative;
+  }
 }

@@ -5,7 +5,7 @@ import { MyContext } from './MyContext.jsx';
 import axios from 'axios';
 import {ScaleLoader} from "react-spinners"
 const ChatWindow = () => {
- const{prompt,setPrompt,reply,setReply,currThreadId,prevChats,setPrevChats,setNewChat}= useContext(MyContext)
+ const{prompt,setPrompt,reply,setReply,currThreadId,prevChats,setPrevChats,setNewChat,setShowSidebar}= useContext(MyContext)
  const [loading,setLoading]=useState(false)
  const [isOpen,setIsOpen]=useState(false)
 
@@ -63,19 +63,23 @@ const ChatWindow = () => {
   return (
     <div className='chatWindow'>
       <div className='navbar'>
-       <span>  Smart AI Chat App &nbsp; <i class="fa-solid fa-arrow-down"></i></span>
-       <div className='userIcondiv' onClick={handleProfileClick}>
-       <span className='userIcon'>  <i class="fa-solid fa-user"></i> </span>
+        <span className="menuBtn" onClick={() => setShowSidebar(s => !s)}>
+  <i className="fa-solid fa-bars"></i>
+</span>
+
+       <span>  Smart AI Chat App &nbsp; <i className="fa-solid fa-arrow-down"></i></span>
+       <div className='userIconDiv' onClick={handleProfileClick}>
+       <span className='userIcon'>  <i className="fa-solid fa-user"></i> </span>
        </div>
       </div>
 
       {
         isOpen && 
         <div className='dropDown'>
-           <div className='dropDownItem'><i class="fa-solid fa-gear"></i>Settings</div>
-             <div className='dropDownItem'><i class="fa-solid fa-cloud-arrow-up"></i>Upgrade Plan</div>
+           <div className='dropDownItem'><i className="fa-solid fa-gear"></i>Settings</div>
+             <div className='dropDownItem'><i className="fa-solid fa-cloud-arrow-up"></i>Upgrade Plan</div>
 
-          <div className='dropDownItem'><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</div>
+          <div className='dropDownItem'><i className="fa-solid fa-arrow-right-from-bracket"></i>Log out</div>
 
         </div>
       }
@@ -89,7 +93,7 @@ const ChatWindow = () => {
           onKeyDown={(e)=>e.key==="Enter"? getReply():""}
           >
           </input>
-          <div id='submit' onClick={getReply}>  <i class="fa-solid fa-paper-plane"></i></div>
+          <div id='submit' onClick={getReply}>  <i className="fa-solid fa-paper-plane"></i></div>
         </div>
         <p className='info'>
          Smart AI Chat App can make mistakes . check important info. See Cookie Prefrences

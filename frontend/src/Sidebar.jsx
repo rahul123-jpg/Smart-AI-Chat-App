@@ -7,7 +7,7 @@ import logo from "./assets/blacklogo.png";
 
 
 const Sidebar = () => {
-  const {allThreads,setAllThreads,currThreadId,setNewChat,setPrompt,setReply,setCurrThreadId,setPrevChats}=useContext(MyContext)
+  const {allThreads,setAllThreads,currThreadId,setNewChat,setPrompt,setReply,setCurrThreadId,setPrevChats,showSidebar}=useContext(MyContext)
 
   const getAllThreads=async()=>{
     try{
@@ -68,13 +68,12 @@ const Sidebar = () => {
   }
   
   return (
-   <section className='sidebar'>
+   <section className={`sidebar ${showSidebar ? "active" : ""}`}>
      <button
      onClick={createNewChat}
-     >
-      <img src={logo} alt="gpt logo" className="logo" />
+     ><img src={logo} alt="gpt logo" className="logo" />
       <h3>New Chat </h3>
-      <span> <i class="fa-solid fa-pen-to-square"></i></span>
+      <span> <i className="fa-solid fa-pen-to-square"></i></span>
      </button>
      {/* history */}
      <ul className='history'>

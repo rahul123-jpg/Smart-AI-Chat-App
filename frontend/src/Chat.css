@@ -33,3 +33,31 @@
 pre{
     white-space: pre-wrap;
 }
+
+/* ===== RESPONSIVE CHAT ===== */
+
+@media (max-width: 900px) {
+  .chats {
+    max-width: 95%;
+  }
+
+  .userMessage {
+    margin-left: 5rem;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .userMessage {
+    margin-left: 2rem;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .userDiv,
+  .gptDiv {
+    font-size: 0.8rem;
+  }
+}
+
