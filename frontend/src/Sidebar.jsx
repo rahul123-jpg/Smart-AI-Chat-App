@@ -73,6 +73,7 @@ const Sidebar = () => {
      onClick={createNewChat}
      >
       <img src={logo} alt="gpt logo" className="logo" />
+      <h3>New Chat </h3>
       <span> <i class="fa-solid fa-pen-to-square"></i></span>
      </button>
      {/* history */}
@@ -96,7 +97,7 @@ const Sidebar = () => {
      </ul>
      {/* sign */}
      <div className='sign'>
-      <p> Rahul Singh</p>
+      <p> Guest Mode Only</p>
      </div>
    </section>
   )
