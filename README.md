@@ -45,7 +45,7 @@ PORT=8080
 Run server:
 
 3. Frontend Setup
-cd frontens
+cd frontend
 npm install
 npm start
 
