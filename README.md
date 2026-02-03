@@ -25,9 +25,9 @@ Font Awesome
 
 :Backend
 
-Node.js
-Express.js
-MongoDB
+Node.js,
+Express.js,
+MongoDB,
 
 ⚙ Installation
 1. Clone Repository
@@ -39,13 +39,13 @@ npm install
 
 Create .env
 
-MONGO_URI=your_mongodb_url
+MONGO_URI=your_mongodb_url,
 PORT=8080
 
 Run server:
 
-3. Frontend Setup
-cd frontend
-npm install
+3. Frontend Setup,
+cd frontend,
+npm install,
 npm start
 
