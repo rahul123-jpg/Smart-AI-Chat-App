@@ -18,10 +18,10 @@ A full-stack AI chat application similar to ChatGPT, built using React + Node.js
 🛠 Tech Stack
 :Frontend
 
-React.js
-Axios
-React Spinners
-Font Awesome
+React.js,
+Axios,
+React Spinners,
+Font Awesome,
 
 :Backend
 
@@ -30,12 +30,12 @@ Express.js,
 MongoDB,
 
 ⚙ Installation
-1. Clone Repository
-git clone <your-repo-link>
-cd project
-2. Backend Setup
-cd server
-npm install
+1. Clone Repository,
+git clone <your-repo-link>,
+cd project,
+2. Backend Setup,
+cd server,
+npm install,
 
 Create .env
 
