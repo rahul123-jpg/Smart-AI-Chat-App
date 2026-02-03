@@ -49,3 +49,10 @@ cd frontend,
 npm install,
 npm start
 
+User authentication using JWT
+Login and signup system
+Protected chat routes
+Multi thread chat support
+Chat history saved in database
+AI responses using Gemini model
+Logout and session handling
