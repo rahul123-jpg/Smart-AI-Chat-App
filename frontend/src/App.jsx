@@ -7,7 +7,7 @@ import{v1 as uuidv1} from"uuid";
 
 import { AuthProvider, AuthContext } from "./AuthContext";
 import Login from "./Login";
-import Signup from './SIgnup.jsx';
+import Signup from './Signup.jsx';
 
 function MainAppContent() {
   const { user } = useContext(AuthContext);
