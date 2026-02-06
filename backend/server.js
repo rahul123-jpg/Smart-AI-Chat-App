@@ -14,7 +14,11 @@ import passport from "./config/passport.js";
   const app = express();
   app.use(express.json());
   app.use(cors({
-  origin: "https://smart-ai-chat-app4c.netlify.app/",   // ya jo bhi frontend port ho
+    
+  origin:[
+     "http://localhost:5173",
+   "https://smart-ai-chat-app4c.netlify.app/",   // ya jo bhi frontend port ho
+  ],
   credentials: true
 }));
 
