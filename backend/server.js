@@ -13,7 +13,25 @@ import passport from "./config/passport.js";
 
   const app = express();
   app.use(express.json());
-  
+
+
+// 👉 SESSION SETUP
+app.use(  
+  session({
+    secret:  process.env.SESSION_SECRET,       
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false},
+     sameSite: "none",
+      
+  })
+);
+
+// 👉 PASSPORT INIT
+app.use(passport.initialize());
+app.use(passport.session());
+
+
  app.use(cors({
   origin: [
     "http://localhost:5173",
@@ -24,21 +42,6 @@ import passport from "./config/passport.js";
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
-
-
-// 👉 SESSION SETUP
-app.use(
-  session({
-    secret:  process.env.SESSION_SECRET,       
-    resave: false,
-    saveUninitialized: false,
-      cookie: { secure: false }
-  })
-);
-
-// 👉 PASSPORT INIT
-app.use(passport.initialize());
-app.use(passport.session());
 
 
   app.use("/api",chatRoutes)

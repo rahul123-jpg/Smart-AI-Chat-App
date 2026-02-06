@@ -9,9 +9,8 @@ export const AuthProvider = ({ children }) => {
 
 
   const login = async (email, password) => {
-    const res = await axios.post("https://smart-ai-chat-app-1.onrender.com/api/login", {
-      email,
-      password },
+    const res = await axios.post("https://smart-ai-chat-app-1.onrender.com/api/login", 
+      {email,password },
    { withCredentials: true }
   );
 
@@ -39,7 +38,10 @@ export const AuthProvider = ({ children }) => {
 
 
   const logout = async () => {
-    await axios.get("https://smart-ai-chat-app-1.onrender.com/api/logout");
+    await axios.get("https://smart-ai-chat-app-1.onrender.com/api/logout",
+       { withCredentials: true }
+    );
+    
     setUser(null);
   };
 
