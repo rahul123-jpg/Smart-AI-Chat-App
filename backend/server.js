@@ -1,34 +1,61 @@
-import express from "express";
-import dotenv from "dotenv";
-import cors from "cors"
-import mongoose from "mongoose";
-import chatRoutes from "./routes/Chat.js";
-dotenv.config();
+  import express from "express";
+  import dotenv from "dotenv";
+  import cors from "cors"
+  import mongoose from "mongoose";
+  import chatRoutes from "./routes/Chat.js";
+  import authRoutes from "./routes/auth.js"; 
+  import session from "express-session";
+import passport from "./config/passport.js";
 
 
-const app = express();
-app.use(express.json());
-app.use(cors())
-
-app.use("/api",chatRoutes)
-const PORT=8080
-
-app.listen(PORT, () =>{
-  console.log(`Server running on ${PORT}` )
-connectDB()
-})
+  dotenv.config();
 
 
-const connectDB=async()=>{
-  try{
-    await mongoose.connect(process.env.MONGODB_URL)
-    console.log("connected succesfuly");
-    
-  }catch(err){
-    console.log("failed to connect to db",err);
-    
+  const app = express();
+  app.use(express.json());
+  app.use(cors({
+  origin: "http://localhost:5173",   // ya jo bhi frontend port ho
+  credentials: true
+}));
+
+
+
+// 👉 SESSION SETUP
+app.use(
+  session({
+    secret:  process.env.SESSION_SECRET,       
+    resave: false,
+    saveUninitialized: false,
+      cookie: { secure: false }
+  })
+);
+
+// 👉 PASSPORT INIT
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+  app.use("/api",chatRoutes)
+  app.use("/api", authRoutes); 
+  
+  const PORT=8080
+
+  app.listen(PORT, () =>{
+    console.log(`Server running on ${PORT}` )
+  connectDB()
+  })
+
+
+  const connectDB=async()=>{
+    try{
+      await mongoose.connect(process.env.MONGODB_URL)
+      console.log("connected succesfuly");
+      
+    }catch(err){
+      console.log("failed to connect to db",err);
+      
+    }
   }
-}
 
 
 // const MODEL = "models/gemini-2.5-flash";

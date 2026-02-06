@@ -2,6 +2,8 @@ import express, { Router } from "express"
 import Thread from "../models/Thread.js"
 import geminiAPIResponse from "../utils/gemini.js"
 
+import { isAuth } from "../middleware/protect.js";
+
 const router =express.Router()
 
 
@@ -65,31 +67,9 @@ router.delete("/thread/:threadId",async(req,res)=>{
 })
 
 
-// const MODEL = "models/gemini-2.5-flash";
-// const API_KEY = process.env.GEMINI_API_KEY;
 
-// async function geminiAPIResponse(message) {
 
-//   const response = await fetch(
-//     `https://generativelanguage.googleapis.com/v1/${MODEL}:generateContent?key=${API_KEY}`,
-//     {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({
-//         contents: [
-//           {
-//             parts: [{ text: message }],
-//           },
-//         ],
-//       }),
-//     }
-//   );
-
-//   const data = await response.json();
-//   return data.candidates[0].content.parts[0].text;
-// }
-
-router.post("/chat",async(req,res)=>{
+router.post("/chat",isAuth,async(req,res)=>{
     const {threadId,message}=req.body;
     if(!threadId||!message){
        return  res.status(400).json({error:"missing required feilds"})
@@ -121,3 +101,30 @@ router.post("/chat",async(req,res)=>{
 
 
 export default router
+
+
+
+
+// const MODEL = "models/gemini-2.5-flash";
+// const API_KEY = process.env.GEMINI_API_KEY;
+
+// async function geminiAPIResponse(message) {
+
+//   const response = await fetch(
+//     `https://generativelanguage.googleapis.com/v1/${MODEL}:generateContent?key=${API_KEY}`,
+//     {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({
+//         contents: [
+//           {
+//             parts: [{ text: message }],
+//           },
+//         ],
+//       }),
+//     }
+//   );
+
+//   const data = await response.json();
+//   return data.candidates[0].content.parts[0].text;
+// }

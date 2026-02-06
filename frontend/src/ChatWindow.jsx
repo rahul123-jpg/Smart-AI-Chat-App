@@ -4,10 +4,20 @@ import Chat from "./Chat.jsx";
 import { MyContext } from './MyContext.jsx';
 import axios from 'axios';
 import {ScaleLoader} from "react-spinners"
+import { AuthContext } from "./AuthContext";
+
+
 const ChatWindow = () => {
  const{prompt,setPrompt,reply,setReply,currThreadId,prevChats,setPrevChats,setNewChat,setShowSidebar,showSidebar}= useContext(MyContext)
  const [loading,setLoading]=useState(false)
  const [isOpen,setIsOpen]=useState(false)
+ const { logout } = useContext(AuthContext);
+
+ const handleLogout = async () => {
+  await logout();        // backend + context clear
+  window.location.reload();   // simple tarika to show login page
+};
+
 
  const getReply = async () => {
   setLoading(true)
@@ -22,6 +32,7 @@ const ChatWindow = () => {
         threadId: currThreadId  
       },
       {
+         withCredentials: true,
         headers: {
           "Content-Type": "application/json"
         }
@@ -80,7 +91,7 @@ const ChatWindow = () => {
            <div className='dropDownItem'><i className="fa-solid fa-gear"></i>Settings</div>
              <div className='dropDownItem'><i className="fa-solid fa-cloud-arrow-up"></i>Upgrade Plan</div>
 
-          <div className='dropDownItem'><i className="fa-solid fa-arrow-right-from-bracket"></i>Log out</div>
+          <div className='dropDownItem'onClick={handleLogout}><i className="fa-solid fa-arrow-right-from-bracket"></i>Log out</div>
 
         </div>
       }

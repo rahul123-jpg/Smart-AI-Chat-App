@@ -2,8 +2,31 @@ import './App.css'
 import Sidebar from "./Sidebar.jsx";
 import ChatWindow  from "./ChatWindow.jsx";
 import { MyContext } from './MyContext.jsx';
-import { useState } from 'react';
+import { useState , useContext} from 'react';
 import{v1 as uuidv1} from"uuid";
+
+import { AuthProvider, AuthContext } from "./AuthContext";
+import Login from "./Login";
+import Signup from './SIgnup.jsx';
+
+function MainAppContent() {
+  const { user } = useContext(AuthContext);
+    const [showLogin, setShowLogin] = useState(false);
+   
+     if (!user) {
+    return showLogin ? 
+      <Login switchToSignup={() => setShowLogin(false)} /> :
+      <Signup switchToLogin={() => setShowLogin(true)} />;
+  }
+
+  return (
+    <>
+      <Sidebar />
+      <ChatWindow />
+    </>
+  );
+}
+
 
 function App() {
   const [prompt,setPrompt]=useState("")
@@ -27,11 +50,11 @@ const providerValues={
 
   return (
    <div className='app'>
+    <AuthProvider>
     <MyContext.Provider value={providerValues}>
-    <Sidebar></Sidebar>
-    <ChatWindow></ChatWindow>
+    <MainAppContent/>
     </MyContext.Provider>
-
+</AuthProvider>
    </div>
   )
 }

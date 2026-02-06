@@ -1,0 +1,95 @@
+/* ===== AUTH CONTAINER ===== */
+.authContainer {
+  width: 100%;
+  height: 100vh;
+  background: #0e0e10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ===== BOX ===== */
+.authBox {
+  background: #141417;
+  padding: 30px 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  border: 1px solid #222;
+}
+
+/* ===== HEADING ===== */
+.authBox h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* ===== INPUTS ===== */
+.authInput {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #0e0e10;
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+
+.authInput:focus {
+  border-color: #10a37f;
+}
+
+/* ===== BUTTON ===== */
+.authBtn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #10a37f;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.authBtn:hover {
+  background: #0d8c6d;
+}
+
+/* ===== SWITCH TEXT ===== */
+.switchText {
+  color: #aaa;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.switchText:hover {
+  color: #10a37f;
+}
+
+/* ===== MESSAGE ===== */
+.successMsg {
+  color: #10a37f;
+  text-align: center;
+}
+
+.errorMsg {
+  color: #ff4b4b;
+  text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .authBox {
+    padding: 20px 15px;
+  }
+}
