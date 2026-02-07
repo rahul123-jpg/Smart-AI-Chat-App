@@ -16,8 +16,9 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-left: 120px;
     align-items: center;
+    padding: 0 1rem;        /* left-right dono side equal */
+    position: relative;
 }
 
 .navbar span{
