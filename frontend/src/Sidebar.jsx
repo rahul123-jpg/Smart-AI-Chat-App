@@ -59,9 +59,13 @@ const Sidebar = () => {
   }
  
   const deleteThread=async(threadId)=>{
-    try{
-     const response=await axios.delete(`https://smart-ai-chat-app-1.onrender.com/${threadId}`,{method:"DELETE"})
-     console.log(response.data);
+    try {
+    const response = await axios.delete(
+      `https://smart-ai-chat-app-1.onrender.com/api/thread/${threadId}`,
+      { withCredentials: true }
+    );
+
+    console.log(response.data);
      setAllThreads(prev=>prev.filter(thread=>thread.threadId!==threadId));
      
      if(threadId===currThreadId){

@@ -27,17 +27,34 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
 
-// LOGIN
-router.post("/login", passport.authenticate("local"), (req, res) => {
-  res.json({
-    msg: "Login success",
-    user: {
-      id: req.user._id,
-      email: req.user.email
+    if (err) {
+      return res.status(500).json({ msg: "Server error" });
     }
-  });
+
+    if (!user) {
+      return res.status(401).json({ msg: info?.message || "Invalid credentials" });
+    }
+
+    req.logIn(user, (err) => {
+      if (err) {
+        return res.status(500).json({ msg: "Login session failed" });
+      }
+
+      return res.json({
+        msg: "Login success",
+        user: {
+          id: user._id,
+          email: user.email
+        }
+      });
+    });
+
+  })(req, res, next);
 });
+
 
 // LOGOUT
 router.get("/logout", (req, res) => {

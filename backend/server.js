@@ -8,11 +8,27 @@
 import passport from "./config/passport.js";
 
 
+
   dotenv.config();
 
 
   const app = express();
   app.use(express.json());
+
+  app.set("trust proxy", 1);
+
+
+ app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://smart-ai-chat-app4c.netlify.app",
+    // "https://6985ac6372da5d0ddf2e68d2--smart-ai-chat-app4c.netlify.app"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 
 
 // 👉 SESSION SETUP
@@ -21,27 +37,21 @@ app.use(
     secret:  process.env.SESSION_SECRET,       
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false},
-     sameSite: "none",
-      
+     cookie: {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      //  proxy: true,             // render = https
+      sameSite: "none",      // cross-site ke liye MOST IMPORTANT
+      maxAge: 1000 * 60 * 60 * 24
+    }
   })
 );
+
 
 // 👉 PASSPORT INIT
 app.use(passport.initialize());
 app.use(passport.session());
 
-
- app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://smart-ai-chat-app4c.netlify.app",
-    "https://6985ac6372da5d0ddf2e68d2--smart-ai-chat-app4c.netlify.app"
-  ],
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
 
 
   app.use("/api",chatRoutes)
