@@ -107,7 +107,7 @@ const Sidebar = () => {
      </ul>
      {/* sign */}
      <div className='sign'>
-      <p> Guest Mode Only</p>
+      Guest Mode
      </div>
    </section>
   )
