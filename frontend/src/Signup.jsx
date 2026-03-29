@@ -13,7 +13,6 @@ const Signup = ({ switchToLogin }) => {
   const handle = async () => {
     try {
       await signup(email, password);
-
       setMsg("Signup successful! Now login.");
       setError("");
 
@@ -28,6 +27,25 @@ const Signup = ({ switchToLogin }) => {
 
   return (
     <div className="authContainer">
+
+      {/* LEFT AI PANEL */}
+      <div className="leftPanel">
+        <h1>SmartChat 🤖</h1>
+        <p>Your AI Assistant for Everything</p>
+
+        <img 
+          src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+          alt="chatbot"
+        />
+
+        <div className="features">
+          <p>⚡ Instant Replies</p>
+          <p>🧠 AI Powered</p>
+          <p>💬 24/7 Chat Support</p>
+        </div>
+      </div>
+
+      {/* RIGHT FORM */}
       <div className="authBox">
         <h2>Create Account</h2>
 
@@ -55,6 +73,7 @@ const Signup = ({ switchToLogin }) => {
           Already have account? Login
         </p>
       </div>
+
     </div>
   );
 };

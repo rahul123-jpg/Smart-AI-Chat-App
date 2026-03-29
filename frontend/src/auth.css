@@ -93,3 +93,130 @@
     padding: 20px 15px;
   }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.authContainer {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* LEFT PANEL */
+.leftPanel {
+  flex: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  text-align: center;
+}
+
+
+
+.leftPanel h1 {
+  font-size: 36px;
+  font-family:cursive;
+}
+
+.leftPanel p {
+  font-size: 16px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.leftPanel img {
+  width: 120px;   /* pehle 180px tha → ab chhota */
+  height: auto;
+}
+
+.features {
+  margin-top: 20px;
+}
+
+.features p {
+  font-size: 14px;
+  opacity: 0.9;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* RIGHT PANEL */
+.authBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  gap: 15px;
+}
+
+.authBox h2 {
+  margin-bottom: 10px;
+}
+
+/* INPUT */
+.authInput {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+.authInput:focus {
+  border-color: #6c63ff;
+}
+
+/* BUTTON */
+.authBtn {
+  padding: 12px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.authBtn:hover {
+  background: #574fd6;
+}
+
+/* TEXT */
+.switchText {
+  color: #6c63ff;
+  cursor: pointer;
+}
+
+.successMsg {
+  color: green;
+}
+
+.errorMsg {
+  color: red;
+}
+
+/* 🔥 RESPONSIVE */
+@media (max-width: 768px) {
+  .authContainer {
+    flex-direction: column;
+  }
+
+  .leftPanel {
+    height: 40vh;
+  }
+
+  .leftPanel img {
+    width: 120px;
+  }
+
+  .authBox {
+    padding: 20px;
+  }
+}

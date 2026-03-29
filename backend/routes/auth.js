@@ -27,6 +27,8 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+
+// LOGIN
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
 

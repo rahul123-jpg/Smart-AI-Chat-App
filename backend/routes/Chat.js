@@ -23,6 +23,7 @@ router.post("/test",async(req,res)=>{
     }
 })
 
+
 //get all thread
 
 router.get("/thread",async(req,res)=>{
@@ -36,6 +37,8 @@ router.get("/thread",async(req,res)=>{
         
     }
 })
+
+
 
 router.get("/thread/:threadId",async(req,res)=>{
     const{threadId}=req.params;
@@ -52,6 +55,7 @@ router.get("/thread/:threadId",async(req,res)=>{
     }
 })
 
+
 router.delete("/thread/:threadId",async(req,res)=>{
     const{threadId}=req.params
     try{
@@ -65,6 +69,7 @@ router.delete("/thread/:threadId",async(req,res)=>{
         res.status(500).json({err:"failed to delete thread"})
     }
 })
+
 
 
 
